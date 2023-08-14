@@ -1,22 +1,28 @@
 PODS:
+  - app_group_directory (1.0.0):
+    - Flutter
   - Flutter (1.0.0)
   - live_activity_flutter (0.0.1):
     - Flutter
 
 DEPENDENCIES:
+  - app_group_directory (from `.symlinks/plugins/app_group_directory/ios`)
   - Flutter (from `Flutter`)
   - live_activity_flutter (from `.symlinks/plugins/live_activity_flutter/ios`)
 
 EXTERNAL SOURCES:
+  app_group_directory:
+    :path: ".symlinks/plugins/app_group_directory/ios"
   Flutter:
     :path: Flutter
   live_activity_flutter:
     :path: ".symlinks/plugins/live_activity_flutter/ios"
 
 SPEC CHECKSUMS:
+  app_group_directory: 7bf9f8f9819ead554de29da7c25fb7a680d6a9a0
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
   live_activity_flutter: ac47cb3d98d8ba3776eaf17c66418d9cb107f5fc
 
-PODFILE CHECKSUM: 70d9d25280d0dd177a5f637cdb0f0b0b12c6a189
+PODFILE CHECKSUM: cd13f7939ef96b7b2bc5022f3b5fe97092150907
 
 COCOAPODS: 1.12.1
