@@ -14,17 +14,19 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   final liveActivity = LiveActivity();
-  ValueNotifier<String> liveActivityState = ValueNotifier('');
+  ValueNotifier<String> liveActivityState = ValueNotifier('HI');
 
   @override
   void initState() {
     super.initState();
 
     liveActivity.activityChangeNotifier.listen((event) {
+      debugPrint('ActivityChanged');
       liveActivityState.value =
-          'LiveActivityState: ${event.liveActivityState}\nLiveActivityId: ${event.activityId}\n PushToken: ${event.pushToken}';
+          'LiveActivityState: ${event.liveActivityState}\nLiveActivityId: ${event.activityId}\n PushToken: ${event.pushToken} ${event.toString()}';
     });
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -53,15 +55,15 @@ class _MyAppState extends State<MyApp> {
             ElevatedButton(
               onPressed: () async {
                 debugPrint('CreateLiveActivity');
-                await liveActivity.createActivity(data: sampleData);
+                await liveActivity.createActivity(data: sampleInitialData);
               },
               child: const Text('Create Live Activity'),
             ),
             ElevatedButton(
               onPressed: () {
-                debugPrint('Upgrade LiveActivity');
+                debugPrint('Update LiveActivity');
               },
-              child: const Text('Upgrade Live Activity'),
+              child: const Text('Update Live Activity'),
             ),
             ElevatedButton(
               onPressed: () async {
@@ -77,7 +79,7 @@ class _MyAppState extends State<MyApp> {
   }
 }
 
-Map<String, dynamic> sampleData = {
+Map<String, dynamic> sampleInitialData = {
   'aTeam': 1,
   'bTeam': 4,
   'aScore': 3,
