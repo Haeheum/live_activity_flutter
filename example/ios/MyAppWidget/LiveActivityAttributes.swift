@@ -11,9 +11,6 @@ struct LiveActivityAttributes: ActivityAttributes, Identifiable{
         var bScore: Int?
         var onLive: Bool?
         var gameStatus: String?
-        var base: Int?
-        var outCount: Int?
-
     }
     
     var id = UUID()

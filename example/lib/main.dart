@@ -79,11 +79,9 @@ class _MyAppState extends State<MyApp> {
 
 Map<String, dynamic> sampleData = {
   'aTeam': 1,
-  'bTeam': 2,
-  'aScore': 5,
+  'bTeam': 4,
+  'aScore': 3,
   'bScore': 6,
-  'onLive': true,
+  'onLive': false,
   'gameStatus': '2nd Inning',
-  'base': 7,
-  'outCount': 0,
 };

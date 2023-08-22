@@ -7,19 +7,6 @@ let userDefaults = UserDefaults(suiteName: "group.kr.doubled.liveActivity")!
 
 struct LiveActivityWidget: Widget {
     
-    func getBase(value: Int) -> (Bool, Bool, Bool) {
-        var arr: [Bool] = [false, false, false]
-        if value >= 0 && value <= 7 {
-            let bin = String(format: "%03d", Int(String(value, radix: 2))!)
-            var i = 0 ;
-            for char in bin {
-                arr[i] = char == "0" ? false : true;
-                i += 1
-            }
-        }
-        return (arr[0], arr[1],arr[2])
-    }
-    
     func getTeamName(number: Int) -> String {
         let teamDict = [1:"SSG LANDERS", 2:"KIWOOM HEROES", 3:"LG TWINS", 4:"KT WIZ", 5:"KIA TIGERS", 6:"NC DINOS", 7:"SAMSUNG LIONS", 8:"LOTTE GIANTS", 9:"DOOSAN BEARS", 10:"HANWHA EAGLES"]
         
@@ -37,14 +24,11 @@ struct LiveActivityWidget: Widget {
             
             let onLive = context.state.onLive ?? userDefaults.bool(forKey: "onLive")
             let gameStatus = context.state.gameStatus ?? userDefaults.string(forKey: "gameStatus")!
-            let base = context.state.base ?? userDefaults.integer(forKey: "base")
-            let (isBaseThree, isBaseTwo, isBaseOne) = getBase(value: base)
-            let outCount = context.state.outCount ?? userDefaults.integer(forKey: "outCount")
             
-
+            
             ZStack {
                 Rectangle()
-                    .fill(Color.black)
+                    .fill(Color.blue)
                     .cornerRadius(16, corners: [.topLeft, .topRight])
                 HStack(spacing:20){
                     Image("\(aTeam)")
@@ -59,7 +43,7 @@ struct LiveActivityWidget: Widget {
                     }
                     ZStack {
                         RoundedRectangle(cornerRadius: 5)
-                            .fill(Color(red: 0.106, green: 0.106, blue: 0.106))
+                            .fill(Color.gray)
                             .frame(height:30)
                         
                         HStack {
@@ -67,50 +51,18 @@ struct LiveActivityWidget: Widget {
                             HStack {
                                 if(onLive){
                                     Circle()
-                                        .fill(Color(red: 0.867, green: 0.155, blue: 0.155))
+                                        .fill(Color.red)
                                         .frame(width: 4, height: 4)
                                 }else{
                                     Circle()
-                                        .fill(Color(red: 0.242, green: 0.242, blue: 0.242))
+                                        .fill(Color.black)
                                         .frame(width: 4, height: 4)
                                 }
                                 
                                 Text(gameStatus)
                                     .font(Font.system(size: 11, weight: .regular))
-                                    .foregroundColor(Color.white.opacity(0.8))
+                                    .foregroundColor(Color.white)
                             }
-                            VStack (alignment: .center) {
-                                VStack(spacing: 0){
-                                    //2루
-                                    Rectangle()
-                                        .frame(width: 7, height: 7)
-                                        .foregroundColor(isBaseTwo ? Color.white : Color(red: 0.242, green: 0.242, blue: 0.242))
-                                        .transformEffect(CGAffineTransform(rotationAngle: .pi / 4))
-                                    
-                                    HStack (spacing:4){
-                                        //3루
-                                        Rectangle()
-                                            .frame(width: 7, height: 7)
-                                            .foregroundColor(isBaseThree ? Color.white : Color(red: 0.242, green: 0.242, blue: 0.242))
-                                            .transformEffect(CGAffineTransform(rotationAngle: .pi / 4))
-                                        //1루
-                                        Rectangle()
-                                            .frame(width: 7, height: 7)
-                                            .foregroundColor(isBaseOne ? Color.white : Color(red: 0.242, green: 0.242, blue: 0.242))
-                                            .transformEffect(CGAffineTransform(rotationAngle: .pi / 4))
-                                    }
-                                }
-                                .padding(.leading, 7)
-                                HStack(spacing: 2){
-                                    Circle()
-                                        .fill(outCount > 0 ? Color(red: 0.867, green: 0.155, blue: 0.155) : Color(red: 0.242, green: 0.242, blue: 0.242) )
-                                        .frame(width: 4, height: 4)
-                                    Circle()
-                                        .fill(outCount > 1 ? Color(red: 0.867, green: 0.155, blue: 0.155) : Color(red: 0.242, green: 0.242, blue: 0.242 ))
-                                        .frame(width: 4, height: 4)
-                                }
-                            }
-                            .frame(height:23)
                             
                         }
                         .padding(.horizontal, 7)
