@@ -8,9 +8,9 @@ let userDefaults = UserDefaults(suiteName: "group.kr.doubled.liveActivity")!
 struct LiveActivityWidget: Widget {
     
     func getTeamName(number: Int) -> String {
-        let teamDict = [1:"SSG LANDERS", 2:"KIWOOM HEROES", 3:"LG TWINS", 4:"KT WIZ", 5:"KIA TIGERS", 6:"NC DINOS", 7:"SAMSUNG LIONS", 8:"LOTTE GIANTS", 9:"DOOSAN BEARS", 10:"HANWHA EAGLES"]
+        let teamDict = [1:"LANDERS", 2:"HEROES", 3:"TWINS", 4:"WIZ", 5:"TIGERS", 6:"DINOS", 7:"LIONS", 8:"GIANTS", 9:"BEARS", 10:"EAGLES"]
         
-        return teamDict[number] ?? ""
+        return teamDict[number] ?? "SSG LANDERS"
     }
     
     var body: some WidgetConfiguration {
@@ -29,36 +29,35 @@ struct LiveActivityWidget: Widget {
             ZStack {
                 Rectangle()
                     .fill(Color.blue)
-                    .cornerRadius(16, corners: [.topLeft, .topRight])
+                    .cornerRadius(16)
                 HStack(spacing:20){
                     Image("\(aTeam)")
                         .frame(width:51, height: 36)
                     VStack() {
                         Text(aTeamName)
                             .foregroundColor(Color.white)
-                            .font(Font.system(size: 12, weight: .regular))
                         Text("\(aScore)")
                             .foregroundColor(Color.white)
-                            .font(Font.system(size: 30, weight: .regular))
+                            .font(Font.system(size: 30))
                     }
                     ZStack {
                         RoundedRectangle(cornerRadius: 5)
-                            .fill(Color.indigo)
+                                    .fill(Color.teal)
                             .frame(height:30)
                         
                         HStack {
                             
-                            HStack {
+                        
                                 
                                 Circle()
                                     .fill(onLive ? Color.red : Color.black)
-                                    .frame(width: 4, height: 4)
+                                    .frame(width: 8, height: 8)
                                 
                                 
                                 Text(gameStatus)
                                     .font(Font.system(size: 11, weight: .regular))
                                     .foregroundColor(Color.white)
-                            }
+            
                             
                         }
                         .padding(.horizontal, 7)
@@ -71,10 +70,9 @@ struct LiveActivityWidget: Widget {
                     VStack() {
                         Text(bTeamName)
                             .foregroundColor(Color.white)
-                            .font(Font.system(size: 12, weight: .regular))
                         Text("\(bScore)")
                             .foregroundColor(Color.white)
-                            .font(Font.system(size: 30, weight: .regular))
+                            .font(Font.system(size: 30))
                     }
                     Image("\(bTeam)")
                         .frame(width:51, height: 36)
@@ -95,21 +93,5 @@ struct LiveActivityWidget: Widget {
                 
             }
         }
-    }
-}
-
-extension View {
-    func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
-        clipShape( RoundedCorner(radius: radius, corners: corners) )
-    }
-}
-struct RoundedCorner: Shape {
-    
-    var radius: CGFloat = .infinity
-    var corners: UIRectCorner = .allCorners
-    
-    func path(in rect: CGRect) -> Path {
-        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
-        return Path(path.cgPath)
     }
 }
