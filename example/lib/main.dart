@@ -51,7 +51,7 @@ class _MyAppState extends State<MyApp> {
   initIfLiveActivitySupported() async {
     if (await liveActivity.isActivitySupported()) {
       liveActivity.init(
-          appGroupId: 'group.kr.doubled.liveActivityPlugin');
+          appGroupId: 'group.kr.doubled.liveActivity');
     }
   }
 }
