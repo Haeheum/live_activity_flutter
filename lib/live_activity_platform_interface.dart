@@ -38,8 +38,8 @@ abstract class LiveActivityPlatform extends PlatformInterface {
   Future<String?> createActivity({
     required Map<String, dynamic> data,
     double? relevanceScore,
-    int? durationHours,
-    int? durationMinutes,
+    int durationHours = 0,
+    int durationMinutes = 0,
   }) {
     throw UnimplementedError('isActivitySupported() has not been implemented.');
   }

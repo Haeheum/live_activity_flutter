@@ -9,9 +9,10 @@ import WidgetKit
 import SwiftUI
 
 @main
-struct MyAppWidgetBundle: WidgetBundle {
+struct LiveActivityBundle: WidgetBundle {
     var body: some Widget {
-        MyAppWidget()
-        MyAppWidgetLiveActivity()
+        if #available(iOS 16, *) {
+            LiveActivityWidget()
+        }
     }
 }

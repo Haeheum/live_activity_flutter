@@ -40,17 +40,17 @@ class LiveActivityMethodChannel extends LiveActivityPlatform {
   @override
   Future<String?> createActivity(
       {required Map<String, dynamic> data,
-        int? durationHours = 0,
-        int? durationMinutes = 0,
+        int durationHours = 0,
+        int durationMinutes = 0,
         double? relevanceScore}) async {
     assert(_initComplete, 'init required');
     await _liveActivityImageService.addImageToAppGroup(data);
-    int? durationSumInMinutes = (durationHours! * 60) + durationMinutes!;
+    int? durationSumInMinutes = (durationHours * 60) + durationMinutes;
 
     // Maximum 480 minutes(8 hours).
     if (durationSumInMinutes > 480) durationSumInMinutes = 480;
     // If the durationSumInMinutes is less than or equal to 0, null value is passed.
-    if (durationSumInMinutes < 0) durationSumInMinutes = null;
+    if (durationSumInMinutes <= 0) durationSumInMinutes = null;
 
     return methodChannel.invokeMethod<String>('createActivity', {
       'data': data,

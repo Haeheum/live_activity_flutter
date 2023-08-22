@@ -48,8 +48,8 @@ class LiveActivity implements LiveActivityPlatform {
   @override
   Future<String?> createActivity(
       {required Map<String, dynamic> data,
-        int? durationHours,
-        int? durationMinutes,
+        int durationHours = 0,
+        int durationMinutes = 0,
         double? relevanceScore}) {
     return LiveActivityPlatform.instance.createActivity(
       data: data,
