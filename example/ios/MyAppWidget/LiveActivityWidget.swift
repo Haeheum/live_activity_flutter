@@ -43,21 +43,17 @@ struct LiveActivityWidget: Widget {
                     }
                     ZStack {
                         RoundedRectangle(cornerRadius: 5)
-                            .fill(Color.gray)
+                            .fill(Color.indigo)
                             .frame(height:30)
                         
                         HStack {
                             
                             HStack {
-                                if(onLive){
-                                    Circle()
-                                        .fill(Color.red)
-                                        .frame(width: 4, height: 4)
-                                }else{
-                                    Circle()
-                                        .fill(Color.black)
-                                        .frame(width: 4, height: 4)
-                                }
+                                
+                                Circle()
+                                    .fill(onLive ? Color.red : Color.black)
+                                    .frame(width: 4, height: 4)
+                                
                                 
                                 Text(gameStatus)
                                     .font(Font.system(size: 11, weight: .regular))
