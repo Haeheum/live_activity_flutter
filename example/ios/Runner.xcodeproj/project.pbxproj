@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		085094AD2A89B3A300061ED2 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 085094AC2A89B3A300061ED2 /* WidgetKit.framework */; };
 		085094AF2A89B3A300061ED2 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 085094AE2A89B3A300061ED2 /* SwiftUI.framework */; };
-		085094B22A89B3A300061ED2 /* MyAppWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 085094B12A89B3A300061ED2 /* MyAppWidgetBundle.swift */; };
-		085094B42A89B3A300061ED2 /* MyAppWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 085094B32A89B3A300061ED2 /* MyAppWidgetLiveActivity.swift */; };
-		085094B62A89B3A300061ED2 /* MyAppWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 085094B52A89B3A300061ED2 /* MyAppWidget.swift */; };
 		085094B82A89B3A400061ED2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 085094B72A89B3A400061ED2 /* Assets.xcassets */; };
 		085094BC2A89B3A400061ED2 /* MyAppWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 085094AB2A89B3A300061ED2 /* MyAppWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		089D5E1D2A94ABAF0038B2FA /* LiveActivityAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089D5E1C2A94ABAF0038B2FA /* LiveActivityAttributes.swift */; };
+		089D5E1F2A94ABDC0038B2FA /* LiveActivityBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089D5E1E2A94ABDC0038B2FA /* LiveActivityBundle.swift */; };
+		089D5E212A94AC020038B2FA /* LiveActivityWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089D5E202A94AC020038B2FA /* LiveActivityWidget.swift */; };
 		1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */; };
 		3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */; };
 		74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74858FAE1ED2DC5600515810 /* AppDelegate.swift */; };
@@ -62,13 +62,13 @@
 		085094AB2A89B3A300061ED2 /* MyAppWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MyAppWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		085094AC2A89B3A300061ED2 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		085094AE2A89B3A300061ED2 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		085094B12A89B3A300061ED2 /* MyAppWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAppWidgetBundle.swift; sourceTree = "<group>"; };
-		085094B32A89B3A300061ED2 /* MyAppWidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAppWidgetLiveActivity.swift; sourceTree = "<group>"; };
-		085094B52A89B3A300061ED2 /* MyAppWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAppWidget.swift; sourceTree = "<group>"; };
 		085094B72A89B3A400061ED2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		085094B92A89B3A400061ED2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		085094C22A89D90200061ED2 /* Runner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Runner.entitlements; sourceTree = "<group>"; };
 		085094C32A89D90B00061ED2 /* MyAppWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyAppWidgetExtension.entitlements; sourceTree = "<group>"; };
+		089D5E1C2A94ABAF0038B2FA /* LiveActivityAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivityAttributes.swift; sourceTree = "<group>"; };
+		089D5E1E2A94ABDC0038B2FA /* LiveActivityBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivityBundle.swift; sourceTree = "<group>"; };
+		089D5E202A94AC020038B2FA /* LiveActivityWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivityWidget.swift; sourceTree = "<group>"; };
 		1498D2321E8E86230040F4C2 /* GeneratedPluginRegistrant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeneratedPluginRegistrant.h; sourceTree = "<group>"; };
 		1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneratedPluginRegistrant.m; sourceTree = "<group>"; };
 		3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AppFrameworkInfo.plist; path = Flutter/AppFrameworkInfo.plist; sourceTree = "<group>"; };
@@ -115,11 +115,11 @@
 		085094B02A89B3A300061ED2 /* MyAppWidget */ = {
 			isa = PBXGroup;
 			children = (
-				085094B12A89B3A300061ED2 /* MyAppWidgetBundle.swift */,
-				085094B32A89B3A300061ED2 /* MyAppWidgetLiveActivity.swift */,
-				085094B52A89B3A300061ED2 /* MyAppWidget.swift */,
 				085094B72A89B3A400061ED2 /* Assets.xcassets */,
 				085094B92A89B3A400061ED2 /* Info.plist */,
+				089D5E1C2A94ABAF0038B2FA /* LiveActivityAttributes.swift */,
+				089D5E1E2A94ABDC0038B2FA /* LiveActivityBundle.swift */,
+				089D5E202A94AC020038B2FA /* LiveActivityWidget.swift */,
 			);
 			path = MyAppWidget;
 			sourceTree = "<group>";
@@ -254,6 +254,7 @@
 				TargetAttributes = {
 					085094AA2A89B3A300061ED2 = {
 						CreatedOnToolsVersion = 14.3.1;
+						LastSwiftMigration = 1430;
 					};
 					97C146ED1CF9000F007C117D = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -380,9 +381,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				085094B42A89B3A300061ED2 /* MyAppWidgetLiveActivity.swift in Sources */,
-				085094B22A89B3A300061ED2 /* MyAppWidgetBundle.swift in Sources */,
-				085094B62A89B3A300061ED2 /* MyAppWidget.swift in Sources */,
+				089D5E1F2A94ABDC0038B2FA /* LiveActivityBundle.swift in Sources */,
+				089D5E1D2A94ABAF0038B2FA /* LiveActivityAttributes.swift in Sources */,
+				089D5E212A94AC020038B2FA /* LiveActivityWidget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +433,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
@@ -474,6 +476,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
@@ -513,6 +516,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
