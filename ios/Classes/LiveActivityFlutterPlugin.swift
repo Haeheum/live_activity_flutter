@@ -102,6 +102,7 @@ public class LiveActivityFlutterPlugin: NSObject, FlutterPlugin, FlutterStreamHa
         }
         
     }
+    
     @available(iOS 16.1, *)
     func createActivity(data: [String: Any]?, durationSumInMinutes: Int?, relevanceScore: Double, result: @escaping FlutterResult){
         if(data != nil){
@@ -222,16 +223,6 @@ public class LiveActivityFlutterPlugin: NSObject, FlutterPlugin, FlutterStreamHa
         }
     }
     
-    
-    struct LiveActivityAttributes: ActivityAttributes, Identifiable{
-        public typealias DynamicData = ContentState
-        public struct ContentState: Codable, Hashable {
-            
-        }
-        
-        var id = UUID()
-    }
-    
     @available(iOS 16.1, *)
     private func watchActivity<T : ActivityAttributes>(_ activity: Activity<T>) {
         Task {
@@ -260,5 +251,14 @@ public class LiveActivityFlutterPlugin: NSObject, FlutterPlugin, FlutterStreamHa
                 }
             }
         }
+    }
+    
+    struct LiveActivityAttributes: ActivityAttributes, Identifiable{
+        public typealias DynamicData = ContentState
+        public struct ContentState: Codable, Hashable {
+            
+        }
+        
+        var id = UUID()
     }
 }
