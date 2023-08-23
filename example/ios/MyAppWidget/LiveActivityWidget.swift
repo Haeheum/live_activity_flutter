@@ -33,35 +33,33 @@ struct LiveActivityWidget: Widget {
                 HStack(spacing:20){
                     Image("\(aTeam)")
                         .frame(width:51, height: 36)
+                        .padding(.leading, 5)
                     VStack() {
                         Text(aTeamName)
                             .foregroundColor(Color.white)
                         Text("\(aScore)")
                             .foregroundColor(Color.white)
-                            .font(Font.system(size: 30))
+                            .font(Font.system(size: 25))
                     }
                     ZStack {
                         RoundedRectangle(cornerRadius: 5)
-                                    .fill(Color.teal)
+                            .fill(Color.teal)
                             .frame(height:30)
                         
                         HStack {
                             
-                        
-                                
-                                Circle()
-                                    .fill(onLive ? Color.red : Color.black)
-                                    .frame(width: 8, height: 8)
-                                
-                                
-                                Text(gameStatus)
-                                    .font(Font.system(size: 11, weight: .regular))
-                                    .foregroundColor(Color.white)
-            
+                            Circle()
+                                .fill(onLive ? Color.red : Color.black)
+                                .frame(width: 8, height: 8)
+                            
+                            
+                            Text(gameStatus)
+                                .font(Font.system(size: 11, weight: .regular))
+                                .foregroundColor(Color.white)
+                            
                             
                         }
                         .padding(.horizontal, 7)
-                        .padding(.vertical, 3)
                     }
                     
                     .frame( width: 100,height:30)
@@ -72,10 +70,11 @@ struct LiveActivityWidget: Widget {
                             .foregroundColor(Color.white)
                         Text("\(bScore)")
                             .foregroundColor(Color.white)
-                            .font(Font.system(size: 30))
+                            .font(Font.system(size: 25))
                     }
                     Image("\(bTeam)")
                         .frame(width:51, height: 36)
+                        .padding(.trailing, 5)
                 }
             }
             .frame(height:82)

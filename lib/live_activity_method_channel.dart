@@ -10,8 +10,8 @@ class LiveActivityMethodChannel extends LiveActivityPlatform {
 
   final LiveActivityImageService _liveActivityImageService =
   LiveActivityImageService();
-  final methodChannel = const MethodChannel('live_activity');
-  final activityListenableChannel = const EventChannel('live_activity/listen');
+  final methodChannel = const MethodChannel('liveActivity');
+  final eventChannel = const EventChannel('onActivityChange');
   /// Whether [init] has been completed.
   bool _initComplete = false;
 
@@ -113,8 +113,8 @@ class LiveActivityMethodChannel extends LiveActivityPlatform {
 
   @override
   Stream<LiveActivityProperty> get activityChangeNotifier =>
-      activityListenableChannel
-          .receiveBroadcastStream('onActivityChange')
+      eventChannel
+          .receiveBroadcastStream("onActivityChange")
           .distinct()
           .map(
             (event) => LiveActivityProperty.fromMap(

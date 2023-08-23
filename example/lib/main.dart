@@ -14,19 +14,42 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   final liveActivity = LiveActivity();
+  String? liveActivityId;
   ValueNotifier<String> liveActivityState = ValueNotifier('HI');
+
+  Map<String, dynamic> sampleData = {
+    'aTeam': 1,
+    'bTeam': 4,
+    'aScore': 0,
+    'bScore': 0,
+    'onLive': false,
+    'gameStatus': '2nd',
+  };
+
+  initialize() async {
+    if (await liveActivity.isActivitySupported()) {
+      liveActivity.init(appGroupId: 'group.kr.doubled.liveActivity');
+      liveActivity.activityChangeNotifier.distinct().listen((event) {
+        debugPrint('ActivityId: ${event.activityId}');
+        debugPrint('State: ${event.liveActivityState}');
+        debugPrint('PushToken: ${event.pushToken}');
+        liveActivityState.value =
+        'LiveActivityState: ${event.liveActivityState}\nLiveActivityId: ${event.activityId}\n PushToken: ${event.pushToken} ${event.toString()}';
+      });
+
+    }
+  }
 
   @override
   void initState() {
     super.initState();
-
-    liveActivity.activityChangeNotifier.listen((event) {
-      debugPrint('ActivityChanged');
-      liveActivityState.value =
-          'LiveActivityState: ${event.liveActivityState}\nLiveActivityId: ${event.activityId}\n PushToken: ${event.pushToken} ${event.toString()}';
-    });
+    initialize();
   }
 
+  @override
+  void dispose(){
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,26 +67,33 @@ class _MyAppState extends State<MyApp> {
                 }),
             ElevatedButton(
               onPressed: () async {
-                debugPrint('InitLiveActivity');
-                if (await liveActivity.isActivitySupported()) {
-                  await liveActivity.init(
-                      appGroupId: 'group.kr.doubled.liveActivity');
-                }
-              },
-              child: const Text('Init Live Activity'),
-            ),
-            ElevatedButton(
-              onPressed: () async {
                 debugPrint('CreateLiveActivity');
-                await liveActivity.createActivity(data: sampleInitialData);
+                liveActivityId =
+                    await liveActivity.createActivity(data: sampleData);
               },
               child: const Text('Create Live Activity'),
             ),
-            ElevatedButton(
-              onPressed: () {
-                debugPrint('Update LiveActivity');
-              },
-              child: const Text('Update Live Activity'),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                ElevatedButton(
+                  onPressed: () async {
+                    sampleData['aScore'] += 1;
+                    await liveActivity.updateActivity(
+                        activityId: liveActivityId!, data: sampleData);
+                  },
+                  child: const Text('aTeam +'),
+                ),
+                ElevatedButton(
+                  onPressed: () async {
+                    debugPrint('Update LiveActivity');
+                    sampleData['bScore'] += 1;
+                    await liveActivity.updateActivity(
+                        activityId: liveActivityId!, data: sampleData);
+                  },
+                  child: const Text('bTeam +'),
+                ),
+              ],
             ),
             ElevatedButton(
               onPressed: () async {
@@ -78,12 +108,3 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
-
-Map<String, dynamic> sampleInitialData = {
-  'aTeam': 1,
-  'bTeam': 4,
-  'aScore': 3,
-  'bScore': 6,
-  'onLive': false,
-  'gameStatus': '2nd Inning',
-};

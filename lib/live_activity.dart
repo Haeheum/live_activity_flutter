@@ -109,7 +109,7 @@ class LiveActivity implements LiveActivityPlatform {
     return LiveActivityPlatform.instance.getActivityState(activityId);
   }
 
-  ///Get [LiveActivityProperty] when a Live Activity.
+  ///Get [LiveActivityProperty] when Live Activity changes.
   @override
   Stream<LiveActivityProperty> get activityChangeNotifier =>
       LiveActivityPlatform.instance.activityChangeNotifier;
