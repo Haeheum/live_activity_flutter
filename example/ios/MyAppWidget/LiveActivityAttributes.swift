@@ -5,8 +5,8 @@ struct LiveActivityAttributes: ActivityAttributes, Identifiable{
     public typealias DynamicData = ContentState
     public struct ContentState: Codable, Hashable {
 
-        var aTeam: Int?
-        var bTeam: Int?
+        var aTeamName: String?
+        var bTeamName: String?
         var aScore: Int?
         var bScore: Int?
         var onLive: Bool?

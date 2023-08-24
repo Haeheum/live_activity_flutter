@@ -12,14 +12,21 @@ class MyApp extends StatefulWidget {
   State<MyApp> createState() => _MyAppState();
 }
 
+enum KoreaBaseballTeams {
+  LANDERS,
+
+}
+
 class _MyAppState extends State<MyApp> {
   final liveActivity = LiveActivity();
   String? liveActivityId;
   ValueNotifier<String> liveActivityState = ValueNotifier('HI');
 
+
+
   Map<String, dynamic> sampleData = {
-    'aTeam': 1,
-    'bTeam': 4,
+    'aTeamName': 'LANDERS',
+    'bTeamName': 'HEROES',
     'aScore': 0,
     'bScore': 0,
     'onLive': false,
